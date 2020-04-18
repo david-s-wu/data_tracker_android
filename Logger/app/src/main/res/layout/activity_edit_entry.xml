@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditEntryActivity">
+
+
+    <TextView
+        android:id="@+id/titleTV"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_marginTop="32dp"
+        android:text="Edit Entry"
+        android:textColor="@color/colorPrimary"
+        android:textIsSelectable="false"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/entryDateTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="TextView"
+        android:textColor="@color/colorDarkGrey"
+        android:textSize="25sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/titleDateTV"
+        app:layout_constraintEnd_toStartOf="@+id/btnEditDate"
+        tools:text="00-00-0000" />
+
+    <TextView
+        android:id="@+id/titleValueTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Value:"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@+id/titleTimeTV"
+        app:layout_constraintTop_toBottomOf="@+id/titleTimeTV" />
+
+
+    <EditText
+        android:id="@+id/entryNewValueTV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter new value"
+        android:inputType="numberDecimal"
+        android:textColor="@color/colorOrangy"
+        android:textSize="25sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/titleValueTV"
+        app:layout_constraintEnd_toEndOf="@+id/btnEditTime"
+        app:layout_constraintStart_toStartOf="@+id/entryTimeTV" />
+
+    <TextView
+        android:id="@+id/titleDateTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Date:"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@+id/titleIdTV"
+        app:layout_constraintTop_toBottomOf="@+id/titleIdTV" />
+
+    <TextView
+        android:id="@+id/entryTimeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@color/colorDarkGrey"
+        android:textSize="25sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/titleTimeTV"
+        app:layout_constraintStart_toStartOf="@+id/entryDateTV"
+        tools:text="00:00:00" />
+
+
+    <Button
+        android:id="@+id/btnSaveEdit"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="56dp"
+        android:background="@color/colorPrimaryLight"
+        android:text="Save Edit"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnDeleteEntry"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnDeleteEntry"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorOrangy"
+        android:text="Delete Entry"
+        android:textColor="@color/colorPrimaryLight"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/entryIdTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/titleIdTV"
+        app:layout_constraintStart_toStartOf="@+id/entryDateTV"
+        tools:text="-1" />
+
+    <TextView
+        android:id="@+id/titleIdTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="84dp"
+        android:text="Entry ID:"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTV" />
+
+    <TextView
+        android:id="@+id/titleTimeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Time:"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@+id/titleDateTV"
+        app:layout_constraintTop_toBottomOf="@+id/titleDateTV" />
+
+
+    <ImageView
+        android:id="@+id/btnEditDate"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="36dp"
+        android:background="#DBE1E0"
+        android:src="@android:drawable/ic_menu_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/entryDateTV" />
+
+    <ImageView
+        android:id="@+id/btnEditTime"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="#DBE1E0"
+        android:src="@android:drawable/ic_menu_edit"
+        app:layout_constraintStart_toStartOf="@+id/btnEditDate"
+        app:layout_constraintTop_toTopOf="@+id/entryTimeTV" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
