@@ -13,7 +13,7 @@ The data is stored using SQLite. The indiviual entires can be modified after add
 The data is plotted using the MPAndroidchart library (https://github.com/PhilJay/MPAndroidChart).
 
 ## Installation:
-I have not learnt how to make apk files yet. My current method is to upload to a phone via USB debugging mode using Android Studio. 
+Install the DataTracker.apk on the android device. 
 
 ## Screenshots:
 ![Home](screenshots/home_screen.png)
