@@ -83,13 +83,13 @@ class ViewDatabaseActivity : AppCompatActivity(),  MyAdapter.OnEntryListener  {
                // generate string containing export data
                val exportData = StringBuilder()
                exportData.append("Date, Value")
-               for (datapoint in mDataArray) {
+               for (datapoint in mDataArray.reversed()) {
                    exportData.append("\n${datapoint.date.toString()},${datapoint.value.toString()}")
                }
 
                try {
                    //saving the file into device
-                   val out: FileOutputStream = openFileOutput("${currentDataSet}_data.csv", Context.MODE_PRIVATE)
+                   val out: FileOutputStream = openFileOutput("${currentDataSet}.csv", Context.MODE_PRIVATE)
                    out.write(exportData.toString().toByteArray())
                    out.close()
 
@@ -98,7 +98,7 @@ class ViewDatabaseActivity : AppCompatActivity(),  MyAdapter.OnEntryListener  {
                    if (!dir.exists()){
                        dir.mkdirs()
                    }
-                   val file = File(dir, "${currentDataSet}_data.csv")
+                   val file = File(dir, "${currentDataSet}.csv")
                    if (file.exists()) {
                        file.delete()
                        file.createNewFile()
@@ -112,7 +112,7 @@ class ViewDatabaseActivity : AppCompatActivity(),  MyAdapter.OnEntryListener  {
 
                    //exporting
                    val context: Context = applicationContext
-                   val filelocation = File(filesDir, "${currentDataSet}_data.csv")
+                   val filelocation = File(filesDir, "${currentDataSet}.csv")
                    val path: Uri = FileProvider.getUriForFile(
                        context,
                        "com.szetoo.logger.fileprovider",
@@ -121,7 +121,7 @@ class ViewDatabaseActivity : AppCompatActivity(),  MyAdapter.OnEntryListener  {
 
                    val fileIntent = Intent(Intent.ACTION_SEND)
                    fileIntent.type = "text/csv"
-                   fileIntent.putExtra(Intent.EXTRA_SUBJECT, "My Data Tracker export")
+                   fileIntent.putExtra(Intent.EXTRA_SUBJECT, "${currentDataSet}.csv")
                    fileIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                    fileIntent.putExtra(Intent.EXTRA_STREAM, path)
                    startActivity(Intent.createChooser(fileIntent, "Send mail"))

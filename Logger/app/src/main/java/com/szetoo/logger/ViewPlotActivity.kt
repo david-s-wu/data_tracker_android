@@ -120,6 +120,7 @@ class ViewPlotActivity : AppCompatActivity() {
             mDelDialog.setPositiveButton("Yes") { dialog, id ->
 
                 val mDatasetNames = (this.application as MyApplication).globalDatasetNames
+                mDatabase.deleteAllEntries()
                 mDatasetNames.remove(currentDataSet)
                 // Need to set default string if no more datasets.
                 if (mDatasetNames.isEmpty()){

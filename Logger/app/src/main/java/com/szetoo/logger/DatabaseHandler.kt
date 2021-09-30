@@ -98,6 +98,19 @@ class DatabaseHandler(context: Context, tableName: String) : SQLiteOpenHelper(co
         return Integer.parseInt("$_success") != -1
     }
 
+    fun deleteAllEntries() {
+        val db = this.writableDatabase
+        val selectQuery = "SELECT * FROM $TABLE_NAME"
+        val cursor = db.rawQuery(selectQuery, null)
+        if (cursor != null) {
+            cursor.moveToFirst()
+            for (i in 1..cursor.count){
+                deleteEntry(Integer.parseInt(cursor.getString(cursor.getColumnIndex(ID))))
+                cursor.moveToNext()
+            }
+        }
+        db.close()
+    }
 
     companion object {
         private val DB_VERSION = 1
